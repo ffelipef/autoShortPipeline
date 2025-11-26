@@ -60,13 +60,13 @@ def generate_from_prompt(prompt: str, out_dir=None, index=0) -> str:
     url = f"https://image.pollinations.ai/prompt/{encoded_prompt}?width=720&height=1280&seed={seed}&nologo=true&model=turbo"
 
     try:
-        response = requests.get(url, timeout=60)
+        response = requests.get(url, timeout=200)
         
         if response.status_code >= 500:
             print("     [500] Erro no servidor. Tentando prompt simplificado...")
             simple_prompt = quote(f"cartoon 3d scene {index}")
             url = f"https://image.pollinations.ai/prompt/{simple_prompt}?width=720&height=1280&seed={seed}&nologo=true&model=turbo"
-            response = requests.get(url, timeout=60)
+            response = requests.get(url, timeout=200)
 
         response.raise_for_status()
         
@@ -111,8 +111,17 @@ def generate_images_for_script(script_path: str, out_dir=None):
         results.append(img_path)
         
         time.sleep(2) # Pausa maior para evitar erro 429/500
-            
-    return results
+    
+    # Filtrar None (imagens que falharam)
+    valid_results = [img for img in results if img is not None]
+    if not valid_results:
+        print(" [ERRO] Nenhuma imagem foi gerada com sucesso!")
+        return []
+    
+    if len(valid_results) < len(results):
+        print(f" [AVISO] {len(results) - len(valid_results)} imagem(ns) falharam. Continuando com {len(valid_results)} imagens.")
+    
+    return valid_results
 
 if __name__ == '__main__':
     import argparse, sys

@@ -54,6 +54,10 @@ def assemble_video(script_path, images, audio_path):
     # 4. Criar Clipes
     final_clips = []
     for i, (img_path, cena_data) in enumerate(zip(images, cenas)):
+        # Validação robusta: None, tipo errado ou arquivo inexistente
+        if img_path is None or not isinstance(img_path, str):
+            print(f" [PULANDO] Imagem inválida (None/tipo errado): {img_path}")
+            continue
         if not os.path.exists(img_path):
             print(f" [PULANDO] Imagem não existe: {img_path}")
             continue
