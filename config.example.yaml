@@ -1,0 +1,37 @@
+# ---------------------------------------------------------
+# ARQUIVO DE EXEMPLO DE CONFIGURAÇÃO
+#
+# INSTRUÇÕES:
+# 1. Copie este arquivo e renomeie para 'config.yaml'
+# 2. Ajuste as configurações abaixo conforme seu ambiente
+# ---------------------------------------------------------
+
+# Configuração da Inteligência Artificial (Ollama)
+ollama:
+  # O nome do modelo que você baixou no Ollama (ex: llama3, mistral, gemma2)
+  model: "llama3"
+
+# Configurações de Vídeo e Renderização
+video:
+  resolution: [1080, 1920]  # Full HD Vertical (Shorts/Reels)
+  fps: 24                   # Quadros por segundo
+  output_dir: "outputs/videos"
+  images_dir: "outputs/images"
+  audio_dir: "outputs/audio"
+
+# Configurações do YouTube
+youtube:
+  # Mude para true quando quiser fazer o upload automático
+  enabled: false
+  
+  # Nome do arquivo baixado do Google Cloud (deve estar na raiz do projeto)
+  client_secrets_file: "client_secret.json"
+  
+  # Nome do arquivo onde o token de login será salvo automaticamente (não crie este arquivo)
+  credentials_file: "yt-credentials.json"
+  
+  # Status do vídeo ao subir: "private", "public", ou "unlisted"
+  privacy_status: "private"
+  
+  # ID da Categoria (22 = People & Blogs, 20 = Gaming, 24 = Entertainment)
+  category_id: "22"

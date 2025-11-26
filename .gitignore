@@ -1,0 +1,15 @@
+# --- 1. SEGURANÇA MÁXIMA (Credenciais) ---
+client_secret.json
+yt-credentials.json
+.env
+
+# --- 2. Configuração Pessoal ---
+config.yaml
+
+# --- 3. Lixo do Python (Pastas compiladas) ---
+__pycache__/
+*.pyc
+
+# --- 4. Arquivos Gerados (Para não lotar o GitHub) ---
+outputs/
+temp-audio.mp3

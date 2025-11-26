@@ -1,0 +1,18 @@
+Gere uma história curta, engraçada e com gancho final (hook).
+Formato de saída: JSON com chaves: titulo, cenas (lista com texto e prompt_imagem), narracao e hashtags.
+Oscript deve ter ~10-12 cenas.
+Cada cena deve ter ~3-6 segundos de texto (para 45-60s total).
+Nicho: histórias bobas, fofoca, pequenas reviravoltas, cores vibrantes, estilo cartoon.
+
+
+Exemplo de saída JSON desejada:
+{
+    "titulo": "Ele era um menino e virou um Tubarão após cair no mar",
+    "cenas": [
+        {"texto": "Ele era um menino normal como os outros garotos...","prompt": "cartoon 3D colorful, expressive, beach scene"},
+        {"texto": "Ele caiu no mar e algo aconteceu...","prompt": "cartoon 3D boy turning to a shark"},
+        {"texto": "Reviravolta final...","prompt": "funny twist, bright colors"}
+],
+    "narracao": "Texto de narração, versão completa concatenada.",
+    "hashtags": ["#historia","#shorts","#comedia"]
+}
